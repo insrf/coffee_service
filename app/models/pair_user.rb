@@ -1,6 +1,7 @@
 class PairUser < ApplicationRecord
 
   belongs_to :user1, class_name: 'User'
+  belongs_to :user2, class_name: 'User'
 
   before_validation :sort_user_ids
   validates :user1_id, uniqueness: { scope: :user2_id }

@@ -1,0 +1,13 @@
+- model_class = PairUser
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.titleize
+
+%p
+  %strong= model_class.human_attribute_name(:name) + ':'
+  %br
+  = @pair_user.user1.name
+  = @pair_user.user2.name
+
+= link_to t('.back', :default => t("helpers.links.back")), pair_users_path, :class => 'btn btn-default'
+= link_to t('.edit', :default => t("helpers.links.edit")), edit_pair_user_path(@pair_user), :class => 'btn btn-default'
+= link_to t('.destroy', :default => t("helpers.links.destroy")), pair_user_path(@pair_user), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'

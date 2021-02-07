@@ -1,0 +1,11 @@
+= form_for @pair_user, html: { class: "form form-horizontal pair_user" } do |f|
+  = render 'shared/errors', resource: @pair_user
+
+  = f.collection_select :user1_id, User.all, :id, :name, { multiple: true }, {class: "form-control"}
+
+  = f.collection_select :user2_id, User.all, :id, :name, { multiple: true }, {class: "form-control"}
+
+  .form-group
+    .col-lg-offset-2.col-lg-10
+      = f.submit nil,class: 'btn btn-primary'
+      = link_to t('.cancel', :default => t("helpers.links.cancel")), pair_users_path, :class => 'btn btn-default'
