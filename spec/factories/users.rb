@@ -6,8 +6,4 @@ FactoryBot.define do
   factory :user do
     name { "MyName" }
   end
-
-  factory :generate_user, class: "Question" do
-    name { generate(:name) }
-  end
 end

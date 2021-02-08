@@ -1,0 +1,24 @@
+- model_class = Session
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+
+- if flash[:errors].present?
+  = content_tag :div, class: 'resource-errors alert alert-danger' do
+    %ul
+      - flash[:errors].each do |message|
+        %li= message.lstrip
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:name_user_1)
+      %th= model_class.human_attribute_name(:name_user_2)
+  %tbody
+    - @result.pair_users.each do |pair_user|
+      %tr
+        %td= @result.id
+        %td= pair_user.user1.name
+        %td= pair_user.user2.name
+
+= link_to t('.back_to_home', :default => t("helpers.links.back_to_home")), users_path, :class => 'btn btn-default'
