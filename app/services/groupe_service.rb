@@ -14,8 +14,8 @@ class GroupeService
         pair_user = PairUser.create!(element)
       end
     end
-    rescue ActiveRecord::RecordInvalid => exception
-      errors << exception
+  rescue ActiveRecord::RecordInvalid => exception
+    errors << exception
   end
 
   private

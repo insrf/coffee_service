@@ -31,6 +31,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
 gem 'haml'
+gem 'telegram-bot'
 
 group :development, :test do
   gem 'rspec-rails'
